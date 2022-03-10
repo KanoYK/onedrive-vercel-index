@@ -241,7 +241,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { data: identityData } = await axios.get(requestUrl, {
       headers: { Authorization: `Bearer ${accessToken}` },
       params: {
-        select: 'name,size,id,lastModifiedDateTime,folder,file,video,image',
+        select: 'name,size,id,lastModifiedDateTime,folder,video,image',
       },
     })
 
@@ -255,7 +255,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               $skipToken: next,
             }
           : {
-              select: 'name,size,id,lastModifiedDateTime,file,video,image',
+              select: 'name,size,id,lastModifiedDateTime,folder,file,video,image',
               top: siteConfig.maxItems,
             },
       })
